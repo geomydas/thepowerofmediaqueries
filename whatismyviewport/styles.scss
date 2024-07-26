@@ -62,11 +62,11 @@ body {
   src: url("ubuntu-v20-latin-700.woff2") format("woff2");
 }
 h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 .w,
 .h {
-  font-size: 1.25rem;
+  font-size: clamp(0.5rem, 5vw, 1.25rem);
 }
 .w::before,
 .h::before {
@@ -86,7 +86,13 @@ hr {
   height: 2px;
   background-color: #d74002;
 }
-@for $i from 1 through 100000 {
+@media (max-width: 576px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@for $i from 1 through 10000 {
   @media (min-width: #{$i} + px ) {
     .w::before {
       content: "#{$i}";
