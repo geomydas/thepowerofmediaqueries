@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: Ubuntu, sans-serif;
+  text-align: center;
+  color: #d74002;
+  padding: 1.75rem;
+  margin: 0;
+}
+@font-face {
+  font-display: swap;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  src: url("ubuntu-v20-latin-500.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: url("ubuntu-v20-latin-700.woff2") format("woff2");
+}
+h1 {
+  font-size: 3rem;
+}
+.w,
+.h {
+  font-size: 1.25rem;
+}
+.w::before,
+.h::before {
+  font-size: 5em;
+}
+.w::after,
+.h::after {
+  font-size: 2.5em;
+  content: "px";
+}
+.m {
+  font-size: 3rem;
+  margin: 0 1ch;
+}
+hr {
+  border: 0;
+  height: 2px;
+  background-color: #d74002;
+}
+@for $i from 1 through 100000 {
+  @media (min-width: #{$i} + px ) {
+    .w::before {
+      content: "#{$i}";
+    }
+  }
+
+  @media (min-height: #{$i} + px ) {
+    .h::before {
+      content: "#{$i}";
+    }
+  }
+}
